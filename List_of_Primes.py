@@ -18,24 +18,26 @@ def isPrime(x):
     else:
         return(check)
 
-main_check = False
-while main_check == False:
-    input_1 = input("Enter an integer. All primes less than this integer will be shown.")
-    input_list = list(input_1)
-    length = len(input_list)
+def validate(x):
+    list_x = list(x)
+    length = len(list_x)
     counter = 0
     for i in range (0, length):
         for j in range (0, 10):
             j = str(j)
-            if input_list[i] == j:
+            if list_x[i] == j:
                 counter = counter + 1
             else:
                 toggle = True
-
     if counter == length:
-        main_check = True
+        return(True)
     else:
-        toggle = False
+        return(False)
+
+main_check = False
+while main_check == False:
+    input_1 = input("Enter an integer. All primes less than this integer will be shown. ")
+    main_check = validate(input_1)
 
 input_1 = int(input_1)
 for i in range (0, input_1):
